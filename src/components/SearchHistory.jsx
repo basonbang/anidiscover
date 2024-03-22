@@ -1,7 +1,7 @@
 const SearchHistory = () => {
   return (  
     <div className="search-history">
-      Search History
+      <h2>Search History</h2>
     </div>
   );
 }

@@ -11,12 +11,8 @@ function App() {
   const [banList, setBanList] = useState([]);
   const [currentAnime, setCurrentAnime] = useState({});
 
-  const makeQuery = () => {
-    
-  }
-
   const banGenre = (id, name) => {
-
+    
     // check if genre is already present in the banList array
     const genreIsPresent = banList.some(genre => genre.name === name)
     
@@ -28,17 +24,31 @@ function App() {
       }])
     } 
   }
-
+  
   const removeBannedGenre = (genre) => {
     
     const indexOfGenre = banList.indexOf(genre);
-
+    
     setBanList([...banList.slice(0, indexOfGenre), ...banList.slice(indexOfGenre+1)])
   }
 
-  const callAPI = async (query) => {
-    const response = await axios.get("https://api.jikan.moe/v4/anime?sfw&page=1&min_score=7&genres_exclude=");
-    // const response = await axios.get(query);
+  const makeQuery = () => {
+
+    let excludedGenres = "";
+
+    banList.forEach((genre) => {
+      excludedGenres += `${genre.id},`
+    })
+
+    let query = `https://api.jikan.moe/v4/anime?sfw&page=1&min_score=7&genres_exclude=${excludedGenres}`
+  
+    return query;
+  }
+
+  const callAPI = async () => {
+    const queryString = makeQuery();
+
+    const response = await axios.get(queryString);
 
     const randomNumber = Math.floor(Math.random() * 25);
     const randomAnime = response.data.data[randomNumber];
@@ -47,6 +57,7 @@ function App() {
     const title = randomAnime.title_english || randomAnime.title
 
     const genres = randomAnime.genres
+    const themes = randomAnime.themes
   
     let genreArray = [];
 
@@ -54,6 +65,10 @@ function App() {
     genres.forEach(element => {
       genreArray = [...genreArray, {id: element.mal_id, name: element.name}]
     });
+
+    themes.forEach(element => {
+      genreArray = [...genreArray, {id: element.mal_id, name: element.name}]
+    })
 
     const image = randomAnime.images.jpg.image_url
 
