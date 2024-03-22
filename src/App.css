@@ -6,19 +6,146 @@
 }
 
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* App.css */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  
+}
+
+/* DiscoverContainer.css */
+.discover-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.discover-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.discover-container button {
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.discover-container button:hover {
+  background-color: #0056b3;
+}
+
+.discover-container img {
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#discover-action-button {
+  margin-top: 30px;
+  padding: 10px 50px;
+  font-size: 1.25rem;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#discover-action-button:hover {
+  background-color: #218838;
+}
+
+/* Header.css */
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-left: 250px;
+  margin-right: 250px; 
+}
+
+.header-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-container h2 {
+  font-size: 1.15rem;
+  color: #969696; 
+  max-width: 90%;
+  margin: 0 auto;
+  
+}
+
+/* BanList.css */
+.ban-list {
+  height: 100%;
+  width: 17.5%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #fffafa;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* SearchHistory.css */
+.search-history {
+  position: fixed;
+  width: 17.5%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 15px;
+  background-color: #d2d2d2b4;
+  color: white;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Adjustments for small screens and devices */
+@media (max-width: 600px) {
+  .discover-container h2 {
+    font-size: 5vw;
   }
-  to {
-    transform: rotate(360deg);
+
+  .discover-container button, .discover-action-button {
+    font-size: 4vw;
+    padding: 10px 20px;
+  }
+
+  .discover-action-button {
+    padding: 10px 20px; /* Smaller padding on small devices */
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Adjustments for very small screens */
+@media (max-width: 400px) {
+  .discover-container {
+    padding: 10px;
+  }
+
+  .discover-container h2, .discover-container button, .discover-action-button {
+    font-size: 5vw;
   }
 }
-
-
