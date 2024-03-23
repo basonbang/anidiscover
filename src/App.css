@@ -3,9 +3,6 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-image: url(/vector-illustration-cloudy-sky-anime-600nw-1086086774.webp);
-  background-size: cover;
-  background-position: center;
 }
 
 
@@ -27,6 +24,7 @@
   flex-wrap: wrap;
   width: 60%;
   color: black;
+  font-weight: bold;
 }
 
 .discover-container h2 {
@@ -95,12 +93,14 @@
 }
 
 .modal-content {
-  background: rgb(27, 27, 27);
+  backdrop-filter: blur(20px);
   border: 1px solid white;
   padding: 20px;
   border-radius: 10px;
   z-index: 1001;
   width: 93%;
+  color: whitesmoke;
+  font-weight: 200;
 }
 
 /* Header.css */
