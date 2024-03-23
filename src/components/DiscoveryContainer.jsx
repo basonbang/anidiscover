@@ -1,15 +1,18 @@
+import { useState } from "react";
+import DescriptionModal from "./DescriptionModal";
+
 const DiscoverContainer = ( { anime, banGenre, fetchAnime}) => {
 
-  console.log("Anime object in Discovery Container");
-  console.log(anime);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log("Genres of the anime:");
-  console.log(anime?.genres);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return ( 
     <div className="discover-container">
       <div>
-        {anime && <h2>{anime.title}</h2>}
+        {anime && <h2 className="gradient-text">{anime.title}</h2>}
+        <br />
 
         {anime && anime.genres &&
           anime.genres.map((genre) => (
@@ -24,7 +27,16 @@ const DiscoverContainer = ( { anime, banGenre, fetchAnime}) => {
 
         <br />
 
-        {anime && <img src={anime.image} height={250} alt={anime.title}></img>}
+        {!(Object.keys(anime).length === 0) && <img src={anime.images[0]} height={250} alt={anime.title}></img>}
+
+        {!(Object.keys(anime).length === 0) && <div className="other-information">
+          <p>Episodes: {anime.episodes}</p>
+          <p>Score: {anime.score}</p>
+          <div>
+            <button onClick={openModal}>Open Description</button>
+            {isModalOpen && <DescriptionModal description={anime.synopsis} onClose={closeModal} />}
+          </div>
+        </div>}
       </div>
 
       <button id="discover-action-button" onClick={fetchAnime}>
