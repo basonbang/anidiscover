@@ -1,4 +1,4 @@
-# Web Development Project 4 - *Name of App Here*
+# Web Development Project 4 - AniDiscover
 
 Submitted by: Jason Tang
 
@@ -43,7 +43,11 @@ GIF created with ScreenToGif
 ## Notes
 
 Describe any challenges encountered while building the app.
-
+- I had issues with updating my state variables properly as I had functions to remove specific elements from an array and adding specific objects. Learned that it's best to just initialize it as an empty array or object.
+- I had difficulties with the logic behind the BanList and updating the query string based off of it, but I perservered through and found a solution.
+- Styling the app was a challenge as the history and BanList were 2 fixed positions to the left and right. I had to be very specific with my colors, widths, and heights.
+- Mapping each element from the history and banList arrays were generating errors for me, so I had to utilize conditional rendering a lot.
+- Still trying to figure out how to make it so that the same anime isn't fetched twice, but it requires a complex solution that I haven't been able to think of yet. This is due to my response object and query string. 
 ## License
 
     Copyright [2024] [Jason Tang]
